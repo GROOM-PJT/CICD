@@ -23,13 +23,13 @@ spec:
             containerPort: 8080
           - name: jnlp-port
             containerPort: 50000
-          volumeMounts:
-            - name: jenkins-home
-              mountPath: /var/jenkins_home
-            - name: docker-socket
-              mountPath: /var/run/docker.sock
-            - name: docker-binary
-              mountPath: /usr/bin/docker
+        volumeMounts:
+          - name: jenkins-home
+            mountPath: /var/jenkins_home
+          - name: docker-socket
+            mountPath: /var/run/docker.sock
+          - name: docker-binary
+            mountPath: /usr/bin/docker
       volumes:
         - name: jenkins-home
           persistentVolumeClaim:
