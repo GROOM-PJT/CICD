@@ -15,7 +15,7 @@ sudo mv /tmp/eksctl /usr/local/bin
 # 3. kubectl 설치 
 curl -o kubectl https://s3.us-west-2.amazonaws.com/amazon-eks/1.23.7/2022-06-29/bin/linux/amd64/kubectl
 wait
-sudo chmod +x ./kubectl
+chmod +x ./kubectl
 wait
 mkdir -p $HOME/bin && cp ./kubectl $HOME/bin/kubectl && export PATH=$PATH:$HOME/bin 
 wait
@@ -65,4 +65,5 @@ echo " kubectl version "
 kubectl version --short --client
 
 # 7. 다음 동작은 aws configure 설정 후 수행 가능
+echo "$ chmod +x ./kubectl"
 echo "$ makeCluster after setting 'aws configure'"
