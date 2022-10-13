@@ -31,3 +31,9 @@ file_system_id=$(aws efs create-file-system \
     --tag Key=Name,Value=groom-efs \
     --query 'FileSystemId' \
     --output text)
+
+# 6. subnet table 띄우기
+aws ec2 describe-subnets \
+    --filters "Name=vpc-id,Values=$vpc_id" \
+    --query 'Subnets[*].{SubnetId: SubnetId,AvailabilityZone: AvailabilityZone,CidrBlock: CidrBlock}' \
+    --output table
