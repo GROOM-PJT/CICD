@@ -95,23 +95,23 @@ spec:
         - name: FILE_SYSTEM_ID
           valueFrom:
             configMapKeyRef:
-              name: efs-provisioner
+              name: efs-provisioner-config
               key: file.system.id
         - name: AWS_REGION
           valueFrom:
             configMapKeyRef:
-              name: efs-provisioner
+              name: efs-provisioner-config
               key: aws.region
         - name: DNS_NAME
           valueFrom:
             configMapKeyRef:
-              name: efs-provisioner
+              name: efs-provisioner-config
               key: dns.name
               optional: true
         - name: PROVISIONER_NAME
           valueFrom:
             configMapKeyRef:
-              name: efs-provisioner
+              name: efs-provisioner-config
               key: provisioner.name
         volumeMounts:
         - name: pv-volume
@@ -126,7 +126,8 @@ spec:
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: efs-provisioner
+  name: efs-provisioner-config
+  namespace: efs
 data:
   file.system.id: fs-089eddab8ceb7612b
   aws.region: ap-northeast-2
