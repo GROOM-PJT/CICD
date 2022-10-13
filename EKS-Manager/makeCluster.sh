@@ -1,5 +1,6 @@
+# 1. cluster 생성
 eksctl create cluster \
-    --name groom-eks\
+    --name groom-EKS\
     --region ap-northeast-2 \
     --with-oidc \
     --ssh-access \
@@ -10,6 +11,6 @@ eksctl create cluster \
     --managed
 
 wait
+# 2. kubectl 자동완성 설정 
 source <(kubectl completion bash)
 echo "source <(kubectl completion bash)" >> ~/.bashrc
-
