@@ -46,6 +46,7 @@ wait
 
 
 # 6. aws-efs-csi-driver 설치 (helm 사용)
+# https://docs.aws.amazon.com/ko_kr/eks/latest/userguide/add-ons-images.html
 helm repo add aws-efs-csi-driver https://kubernetes-sigs.github.io/aws-efs-csi-driver/
 helm repo update
 helm upgrade -i aws-efs-csi-driver aws-efs-csi-driver/aws-efs-csi-driver \

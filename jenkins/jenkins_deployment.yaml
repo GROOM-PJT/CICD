@@ -18,6 +18,7 @@ spec:
       containers:
       - image: jenkins/jenkins:lts
         imagePullPolicy: Always
+        name: container-0
         ports:
           - name: http-port
             containerPort: 8080
@@ -31,7 +32,8 @@ spec:
         volumeMounts:
           - mountPath: /var/jenkins_home
             name: jenkins-vol
-    volumes:
-    - name: jenkins-vol
-      persistentVolumeClaim:
-      claimName: jenkins-pvc
+      volumes:
+      - name: jenkins-vol
+        persistentVolumeClaim:
+          claimName: jenkinis-pvc
+

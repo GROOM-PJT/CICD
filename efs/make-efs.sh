@@ -39,3 +39,5 @@ aws ec2 describe-subnets \
     --output table
 echo "$security_group_id"
 echo "$file_system_id"
+
+cat help_efs

@@ -1,0 +1,6 @@
+aws efs create-mount-target \
+    --file-system-id fs-0000000 \
+    --subnet-id subnet-000000000 \
+    --security-groups sg-0000000000
+
+각각 다른 subnet으로 2번 이상 실행(여러 region에서 적용하기 위해)	
