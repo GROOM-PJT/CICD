@@ -9,6 +9,7 @@ eksctl create cluster \
     --node-volume-size=20 \
     --managed
 
+wait
 source <(kubectl completion bash)
 echo "source <(kubectl completion bash)" >> ~/.bashrc
 
