@@ -1,9 +1,0 @@
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: efs-provisioner
-data:
-  file.system.id: fs-04041a24c05a4a6f4
-  aws.region: ap-northeast-2
-  provisioner.name: groom-devOps.com/aws-efs
-  dns.name: ""
