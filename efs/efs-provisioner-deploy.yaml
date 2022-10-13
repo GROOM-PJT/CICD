@@ -111,7 +111,7 @@ spec:
         - name: PROVISIONER_NAME
           valueFrom:
             configMapKeyRef:
-              name: efs-provisioner-config
+              name: efs-provisioner
               key: provisioner.name
         volumeMounts:
         - name: pv-volume
