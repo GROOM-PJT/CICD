@@ -10,11 +10,8 @@ kind: PersistentVolumeClaim
 metadata:
   name: jenkins-pvc
   namespace: efs
-  labels:
-    ss: efs-claim
-  annotations:
-    volume.beta.kubernetes.io/storage-class: aws-efs
 spec:
+  storageClassName: efs-sc
   accessModes:
     - ReadWriteMany
   resources:
