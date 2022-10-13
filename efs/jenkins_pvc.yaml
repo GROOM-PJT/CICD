@@ -13,7 +13,7 @@ metadata:
   labels:
     ss: efs-claim
   annotations:
-    volume.beta.kubernetes.io/storage-class: "aws-efs"
+    volume.beta.kubernetes.io/storage-class: aws-efs
 spec:
   accessModes:
     - ReadWriteMany
