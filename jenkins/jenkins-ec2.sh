@@ -35,3 +35,5 @@ sudo chmod 666 /var/run/docker.sock
 # ubuntu 유저를 docker 그룹에 추가
 sudo usermod -a -G docker ubuntu
 """
+
+sudo cat /var/lib/jenkins/secrets/initialAdminPassword
