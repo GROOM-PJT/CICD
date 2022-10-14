@@ -31,9 +31,10 @@ $ aws efs create-mount-target \
 $ vi ci-cd/efs/pv.yaml
 ``` 
 
-### 이후 pv,pvc, 등 설정 
+### 이후 jenkins 설치
 
 ```
+$ kubectl create namespace jenkins
 $ kubectl apply -f ci-cd/efs/pv.yaml
 $ kubectl apply -f ci-cd/efs/pvc.yaml
 $ kubectl apply -f ci-cd/efs/storage-class.yaml
