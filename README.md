@@ -45,7 +45,7 @@ $ helm upgrade -i aws-efs-csi-driver aws-efs-csi-driver/aws-efs-csi-driver \
 
 ``` 
 
-### 이후 jenkins 설치
+### jenkins 설치
 
 ```
 $ kubectl create namespace jenkins
@@ -55,8 +55,28 @@ $ kubectl apply -f ci-cd/efs/storage-class.yaml
 
 $ kubectl apply -f ci-cd/jenkins/jenkins_deployment.yaml
 $ kubectl apply -f ci-cd/jenkins/jenkins_service.yaml
+
+# jenkins url 주소를 얻을 수 있다.
+$ kubectl get all -n jenkins
 ```
 
+### argoCD 설치
+```
+$ kubectl create namespace argocd
+$ kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/ha/install.yaml
+
+$ curl -sSL -o ~/bin/argocd https://github.com/argoproj/argo-cd/releases/latest/download/argocd-linux-amd64
+$ chmod +x ~/bin/argocd
+
+# 외부에서 argoCD에 접속 가능하도록 LoadBalancer로 변경
+$ kubectl patch svc argocd-server -n argocd -p '{"spec": {"type": "LoadBalancer"}}'
+
+# argoCD 초기 비밀번호(admin)
+$ kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d; echo
+
+# argoCD url 주소를 얻을 수 있다
+$ kubectl get svc argocd-server -n argocd 
+```
 
 ### 삭제시 
 ```
