@@ -45,19 +45,6 @@ sudo apt-get -y install ./build/amazon-efs-utils*deb
 wait
 
 
-# 6. aws-efs-csi-driver 설치 (helm 사용)
-# https://docs.aws.amazon.com/ko_kr/eks/latest/userguide/add-ons-images.html
-helm repo add aws-efs-csi-driver https://kubernetes-sigs.github.io/aws-efs-csi-driver/
-wait
-helm repo update
-wait
-helm upgrade -i aws-efs-csi-driver aws-efs-csi-driver/aws-efs-csi-driver \
-    --namespace kube-system \
-    --set image.repository=602401143452.dkr.ecr.ap-northeast-2.amazonaws.com/eks/aws-efs-csi-driver \
-    --set controller.serviceAccount.create=false \
-    --set controller.serviceAccount.name=efs-csi-controller-sa
-
-
 echo "aws version"
 aws --version
 echo "eksctl version"
