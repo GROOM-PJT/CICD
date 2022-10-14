@@ -6,6 +6,7 @@ jenkins + argoCD를 EKS에 올리기 위한 yaml 파일
 ```
 $ sh ci-cd/EKS-Manager/init.sh
 $ chmod +x ./kubectl
+$ mkdir -p $HOME/bin && cp ./kubectl $HOME/bin/kubectl && export PATH=$PATH:$HOME/bin 
 $ aws configure
     - input (IAM USER DATA with AdministratorAccess)
 $ sh ci-cd/EKS-Manager/makeCluster.sh
