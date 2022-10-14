@@ -40,4 +40,4 @@ aws ec2 describe-subnets \
 echo "$security_group_id"
 echo "$file_system_id"
 
-cat help_efs
+cat ./ci-cd/efs/help_efs
